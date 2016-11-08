@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>登陆</title>
+    <meta http-equiv="X-UA-COMPATIBLE" CONTENT="IE=edge"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    <!--<link rel="stylesheet" href="/static/img/登录背景.jpg"/>-->
+</head>
+<body class="login">
+<div content="content">
+    <form action="/security/login" content="login-form" method="post">
+        <h3 class="form-title">请登录</h3>
+        <div class="form-group">
+            <label>账号</label>
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <input type="text" class="form-control" name="userName"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <div class="input-icon">
+                <i class="fa fa-password">
+                    <input type="text" name="password" class="form-control"/>
+                </i>
+            </div>
+        </div>
+        <div class="form-actions">
+            <label class="rememberMe mt-checkbox mt-checkbox-online"></label>
+            <input type="checkbox"/>记住我
+            <span></span>
+            <button class="submit green pull-right">登录</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
