@@ -16,7 +16,7 @@ public class Customer extends IdEntity {
 
     private String userName;//账号
     private String password;//密码
-    private String status;//状态
+    private Integer status = 1;//状态
     private String nickName;//别名
     private String remark;//备注
 
@@ -36,11 +36,11 @@ public class Customer extends IdEntity {
         this.password = password;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

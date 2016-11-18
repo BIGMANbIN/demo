@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:include="include/admin/header ::header" th:remove="tag"></div>
+    <div th:include="include/admin/header :: css" th:remove="tag"></div>
+</head>
+<body class="page-header-fixed page-sidebar-close-hide-logo page-content-white">
+<div class="page-container">
+    <div th:include="include/admin/layout :: sidebar(onewar = 'customer')"></div>
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <h3 class="page-title">用户</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-settings fun-dark"></i>
+                            <span class="caption-subject fun-dark sbold">编辑</span>
+                        </div>
+                    </div>
+                    <div class="portlet-from body">
+                        <form class="form-horizontal" id="dataForm" th:action="@{'/admin/customer'+${customer.id}}">
+                            <input type="hidden" name="_method" value="put"/>
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-group"><span class="required">*</span>账号:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="userName" class="form-control input-large" th:value="${customer.userName}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-group"><span class="required">*</span>密码:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="password" class="form-control input-large" th:value="${customer.password}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-group"><span class="required">*</span>名称:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="nickName" class="form-control input-large" th:value="${customer.nickName}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-group"><span class="required">*</span>备注:</label>
+                                    <input type="text" name="remark" class="form-control input-large" th:value="${customer.remark}"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:include="inlucde/admin/footer :: footer" th:remove="tag"></div>
+<div th:include="include/admin/static :: js" th:remove="tag"></div>
+<script th:src="@{/js/admin/customer.js}" type="application/javascript"></script>
+</body>
+</html>

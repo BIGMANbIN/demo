@@ -4,24 +4,22 @@ var ThisApp = function () {
             table = $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                filter: true,
+                filter: false,
                 stateSave: true,
                 ajax: {
                     dataType: "json",
                     url: "/admin/customer/list",
                     type: "post",
-                    date: {},
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader(header, token);
-                    }
+                    //beforeSend: function (xhr) {
+                    //    xhr.setRequestHeader(header, token);
+                    //}
                 },
-                lengthMenu: [[15, 30, 60, -1], [15, 30, 60, "All"]],
-                pageLength: 30,
+                //lengthMenu: [[15, 30, 60, -1], [15, 30, 60, "All"]],
+                //pageLength: 30,
                 pagingType: "bootstrap_full_number",
                 order: [[0, "desc"]],
                 language: Amaz.dataTableLang,
                 columns: [{
-                    data: id,
                     data: "id",
                     visible: false
                 }, {
@@ -190,7 +188,7 @@ var ThisApp = function () {
     };
 }();
 
-jquery(document).ready(function () {
+jQuery(document).ready(function () {
 
     ThisApp.init();
 });

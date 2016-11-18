@@ -7,6 +7,7 @@ import com.example.mian.entity.Customer;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.Map;
 
 @Named
 public class CustomerService extends BaseService<Customer,Long> {
@@ -16,5 +17,10 @@ public class CustomerService extends BaseService<Customer,Long> {
     @Override
     protected CustomRepository<Customer, Long> getEntityRepository() {
         return customerDao;
+    }
+
+
+    public Customer getByUserName(String userName) {
+        return getBy("userName",userName);
     }
 }

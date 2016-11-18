@@ -1,10 +1,85 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <div th:include="include/admin/static :: mate('管理员')" th:remove="tag"></div>
+    <div th:include="include/admin/static :: css" th:remove="tag"></div>
 </head>
-<body>
-
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<div th:include="include/admin/header :: header" th:remove="tag"></div>
+<div class="page-container">
+    <div th:include="include/admin/layout :: sidebar(onevar='security')" th:remove="tag"></div>
+    
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <h3 class="page-title">管理员</h3>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-settings font-dark"></i>
+                                <span class="caption-subject font-dark sbold">修改</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <form class="form-horizontal" id="dataForm" th:action="@{'/security/user/'+${user.id}}"
+                                  role="form">
+                                <input name="_method" value="put" type="hidden"/>
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><span class="required">*</span>账号:</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control input-large" name="userName"
+                                                   maxlength="20" autocomplete="off" th:value="${user.userName}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><span class="required">*</span>密码:</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control input-large" name="password"
+                                                   maxlength="20" autocomplete="off" th:value="${user.password}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><span class="required">*</span>姓名:</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control input-large" name="nickName"
+                                                   maxlength="20" autocomplete="off" th:value="${user.nickName}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><span class="required">*</span>邮箱:</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control input-large" name="email"
+                                                   maxlength="20" autocomplete="off" th:value="${user.email}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><span class="required">*</span>电话:</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control input-large" name="tel"
+                                                   maxlength="20" autocomplete="off" th:value="${user.tel}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <button type="submit" class="btn green">保存</button>
+                                            <button type="button" class="btn default">取消</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include/admin/footer :: footer" th:remove="tag"></div>
+<div th:include="include/admin/static :: js" th:remove="tag"></div>
+<script th:src="@{/js/security/user.js}" type="application/javascript"></script>
 </body>
 </html>
